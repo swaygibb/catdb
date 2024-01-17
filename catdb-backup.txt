@@ -1,0 +1,46 @@
+UNWIND [
+  {
+    "n": {
+      "identity": 10,
+      "labels": [
+        "Cat"
+      ],
+      "properties": {
+        "name": "Theo",
+        "status": "Meowing Kitty"
+      },
+      "elementId": "10"
+    }
+  },
+  {
+    "n": {
+      "identity": 171,
+      "labels": [
+        "Cat"
+      ],
+      "properties": {
+        "name": "Rick",
+        "status": "Good Kitty"
+      },
+      "elementId": "171"
+    }
+  },
+  {
+    "n": {
+      "identity": 172,
+      "labels": [
+        "Cat"
+      ],
+      "properties": {
+        "name": "Sprinkles",
+        "status": "Bad Kitty"
+      },
+      "elementId": "172"
+    }
+  }
+] AS nodesData
+
+CREATE (cat:Cat)
+SET cat = nodesData.n.properties
+SET cat.elementId = nodesData.n.elementId
+RETURN cat;
