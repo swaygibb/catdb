@@ -22,6 +22,6 @@ def get_cats():
     return {"cats": cat.get_cats()}
 
 @app.get("/cats/{cat_id}")
-def get_cat(cat_id: int, query_param: str = None):
+def get_cat(cat_id: int):
     cat = Cat()
     return {"cat": cat.get_cat(cat_id)}
