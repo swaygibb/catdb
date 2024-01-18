@@ -5,7 +5,7 @@ class Cat:
         db = Database()
 
         with db.driver.session() as session:
-            cats = session.execute_write(self._get_cats)
+            cats = session.read_transaction(self._get_cats)
             db.close()
             return cats
 

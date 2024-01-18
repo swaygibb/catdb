@@ -14,7 +14,7 @@ class TestCatMethods(unittest.TestCase):
     def test_get_cats(self):
         mock_session = Mock()
         self.mock_db.return_value.driver.session.return_value.__enter__.return_value = mock_session
-        mock_session.execute_write.return_value = [{"id": 1, "name": "Fluffy", "status": "Healthy"}]
+        mock_session.read_transaction.return_value = [{"id": 1, "name": "Fluffy", "status": "Healthy"}]
 
         with self.subTest("Test get_cats method"):
             result = self.cat_instance.get_cats()
