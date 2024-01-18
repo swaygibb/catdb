@@ -1,0 +1,2 @@
+### Run Api
+uvicorn main:app --reload
