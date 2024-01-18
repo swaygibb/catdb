@@ -1,5 +1,5 @@
 ### Run Api
 uvicorn main:app --reload
 
-### Run Test
+### Run Tests
 python -m unittest discover tests
